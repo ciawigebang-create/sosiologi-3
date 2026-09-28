@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Buku Digital Sosiologi — Belajar dari Ulangan</title>
+<style>
+:root{--bg:#f5f3ee;--paper:#fffdf8;--ink:#263238;--muted:#69747b;--primary:#315c52;--primary2:#8a6240;--soft:#edf3ef;--line:#e5ded3;--case:#fff7e8;--shadow:0 12px 35px rgba(55,45,30,.08)}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.8}
+button,input{font:inherit} button{cursor:pointer}
+.hero{background:linear-gradient(135deg,#234d45,#52786d);color:white;padding:30px 18px 55px}
+.wrap{max-width:1080px;margin:auto} .eyebrow{font:13px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+h1{font-size:clamp(30px,5vw,50px);line-height:1.12;margin:12px 0} .hero p{max-width:780px;margin:0;font-size:17px;color:#eef6f2}
+.shell{max-width:1080px;margin:-25px auto 50px;padding:0 14px;display:grid;grid-template-columns:245px 1fr;gap:18px;align-items:start}
+.sidebar{position:sticky;top:12px;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow);font-family:Arial,sans-serif}
+.sidebar h3{margin:2px 0 12px;font-size:15px} .sidebtn{display:block;width:100%;text-align:left;border:0;background:transparent;padding:10px;border-radius:9px;color:#445;font-size:13px}
+.sidebtn:hover,.sidebtn.active{background:var(--soft);color:var(--primary);font-weight:700}
+.search{margin-bottom:12px} .search input{width:100%;border:1px solid var(--line);border-radius:10px;padding:9px 10px;background:#fff}
+.progress{height:7px;background:#e9e5dc;border-radius:9px;overflow:hidden;margin:8px 0} .progress i{display:block;width:0;height:100%;background:#4b806f}
+.book{background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+.chapter{padding:28px clamp(20px,5vw,52px);border-bottom:1px solid var(--line)}
+.chapter:last-child{border-bottom:0} .chapter-label{font:700 12px Arial,sans-serif;color:var(--primary2);text-transform:uppercase;letter-spacing:.08em}
+.chapter h2{font-size:clamp(25px,4vw,34px);line-height:1.2;margin:7px 0 15px;color:#263f3a}
+.chapter h3{font-size:21px;color:var(--primary);margin-top:25px}
+.chapter p{margin:10px 0} .lead{font-size:18px;color:#4d585c}
+.definition{background:var(--soft);border-left:5px solid var(--primary);padding:16px 18px;margin:20px 0;border-radius:0 12px 12px 0}
+.case{background:var(--case);border:1px solid #ecd9b5;padding:17px 19px;border-radius:14px;margin:20px 0}
+.case strong{color:#8a5a19} .takeaway{background:#f2eee8;padding:15px 18px;border-radius:12px;margin-top:18px}
+ul{padding-left:23px} .qbox{margin-top:24px;border:1px solid var(--line);border-radius:15px;background:#fff;padding:16px;font-family:Arial,sans-serif}
+.qtitle{font-weight:800} .answer{display:none;background:#f0f7f3;border-radius:12px;padding:15px;margin-top:12px}
+.answer.show{display:block} .answer h4{margin:0 0 5px;color:var(--primary)} .answer p{font-family:Georgia,serif;margin:0}
+.qbtn{margin-top:10px;border:0;background:var(--primary);color:#fff;border-radius:9px;padding:9px 12px;font-size:13px}
+.keyword{display:inline-block;background:#e9f0ed;color:#315c52;padding:3px 8px;border-radius:999px;font-size:11px;margin:8px 4px 0 0}
+.chapter-nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px} .chapter-nav button{border:1px solid var(--line);background:#fff;padding:8px 11px;border-radius:9px;font:13px Arial,sans-serif}
+.quote{font-style:italic;color:#596568;border-left:3px solid #c7b8a5;padding-left:15px;margin:20px 0}
+footer{text-align:center;color:var(--muted);font:13px Arial,sans-serif;padding:25px}
+@media(max-width:800px){.shell{grid-template-columns:1fr;margin-top:-15px}.sidebar{position:relative;top:auto}.sidebtn{display:inline-block;width:auto;margin:2px}.chapter{padding:24px 18px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<div class="eyebrow">Buku Digital • Sosiologi SMA/MA</div>
+<h1>Memahami Masyarakat melalui Sosiologi</h1>
+<p>Materi pembahasan ulangan disusun kembali seperti buku belajar. Bacalah konsepnya, ikuti contoh kehidupan sehari-hari, cermati kasus, kemudian gunakan soal untuk menguji pemahamanmu.</p>
+</div></header>
+
+<div class="shell">
+<aside class="sidebar">
+  <div class="search"><input id="search" placeholder="🔎 Cari materi..."></div>
+  <h3>📖 Daftar Bab</h3>
+  <button class="sidebtn active" onclick="go('bab1',this)">Bab 1 · Mengenal Sosiologi</button>
+  <button class="sidebtn" onclick="go('bab2',this)">Bab 2 · Sosialisasi</button>
+  <button class="sidebtn" onclick="go('bab3',this)">Bab 3 · Interaksi & Nilai</button>
+  <button class="sidebtn" onclick="go('bab4',this)">Bab 4 · Konflik, Budaya & Norma</button>
+  <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
+  <div style="font:12px Arial;color:#69747b">Pembahasan dibuka</div>
+  <div class="progress"><i id="prog"></i></div>
+  <div id="counter" style="font:12px Arial;color:#69747b">0 dari 20 soal</div>
+</aside>
+
+<main class="book">
+<section class="chapter" id="bab1" data-title="Mengenal Sosiologi">
+ <div class="chapter-label">Bab 1 · Fondasi</div>
+ <h2>Mengenal Sosiologi dan Cara Berpikir Sosiologis</h2>
+ <p class="lead">Sosiologi membantu kita memahami kehidupan bersama secara lebih teratur. Kita tidak hanya bertanya “apa yang terjadi?”, tetapi juga “mengapa hal itu terjadi?”, “siapa yang terlibat?”, dan “bagaimana lingkungan sosial memengaruhinya?”</p>
+ <div class="definition"><b>Inti konsep:</b> Sosiologi adalah ilmu yang mempelajari masyarakat, hubungan sosial, interaksi sosial, kelompok sosial, proses sosial, serta perubahan yang terjadi di dalam masyarakat dengan menggunakan metode ilmiah.</div>
+ <h3>1. Sosiologi sebagai ilmu</h3>
+ <p>Sosiologi bukan sekadar pendapat tentang masyarakat. Sebagai ilmu, sosiologi berusaha memperoleh pengetahuan melalui pengamatan, pengumpulan data, analisis, dan penalaran yang sistematis.</p>
+ <p>Karena masyarakat selalu berubah, objek yang dipelajari sosiologi juga sangat luas: keluarga, sekolah, kelompok teman sebaya, pekerjaan, kemiskinan, konflik, perubahan gaya hidup, media sosial, hingga hubungan antara masyarakat dan pemerintah.</p>
+ <div class="case"><strong>Contoh kasus — Mengapa siswa terlambat?</strong><p>Bayangkan sekolah menemukan banyak siswa terlambat. Cara berpikir biasa mungkin langsung mengatakan, “siswa tidak disiplin.” Sosiologi akan melihat lebih luas: bagaimana jarak rumah, transportasi, kondisi keluarga, kebiasaan tidur, aturan sekolah, lingkungan pergaulan, atau fasilitas transportasi memengaruhi keterlambatan.</p><p>Dengan demikian, masalah sosial tidak langsung dihakimi; masalah tersebut dipelajari berdasarkan fakta dan hubungan sosial yang melatarbelakanginya.</p></div>
+ <h3>2. Empat ciri utama sosiologi</h3>
+ <ul><li><b>Empiris:</b> berdasarkan pengamatan terhadap kenyataan sosial.</li><li><b>Teoretis:</b> berusaha menjelaskan hubungan antargejala secara logis.</li><li><b>Kumulatif:</b> pengetahuan baru dapat melengkapi atau mengembangkan teori sebelumnya.</li><li><b>Non-etis:</b> menjelaskan fakta sosial tanpa menjadikan penilaian moral sebagai tujuan utama penelitian.</li></ul>
+ <p class="quote">Jadi, ketika mempelajari tawuran, kemiskinan, perilaku menyimpang, atau konflik, peneliti tidak bertugas sekadar mengatakan “ini baik” atau “ini buruk”. Ia perlu memahami sebab, proses, pelaku, kondisi sosial, dan akibatnya.</p>
+ <h3>3. Auguste Comte dan lahirnya sosiologi</h3>
+ <p>Auguste Comte dikenal sebagai “Bapak Sosiologi” karena memperkenalkan istilah sosiologi dan mendorong masyarakat dipelajari secara ilmiah. Pemikirannya berkaitan erat dengan positivisme, yaitu penekanan pada pengetahuan yang diperoleh melalui pengamatan dan metode ilmiah.</p>
+ <div class="case"><strong>Contoh sederhana:</strong><p>Daripada mengatakan “remaja sekarang pasti lebih malas”, penelitian sosiologi akan mengumpulkan data: pola penggunaan waktu, tuntutan sekolah, penggunaan teknologi, kondisi keluarga, aktivitas sosial, dan faktor lain. Kesimpulan dibuat berdasarkan data, bukan stereotip.</p></div>
+ <h3>4. Objek dan kegunaan sosiologi</h3>
+ <p>Objek kajian sosiologi mencakup masyarakat dan hubungan sosial di dalamnya. Sosiologi berguna untuk memahami masalah sosial, membantu perencanaan pembangunan, memberikan bahan bagi kebijakan, mengevaluasi program, serta membantu kita memahami perilaku orang lain.</p>
+ <div class="case"><strong>Contoh kebijakan:</strong><p>Pemerintah ingin mengurangi putus sekolah. Data sosiologi dapat membantu melihat apakah penyebabnya berkaitan dengan ekonomi keluarga, jarak sekolah, budaya, pekerjaan anak, lingkungan pergaulan, fasilitas pendidikan, atau faktor lainnya. Dengan pemahaman tersebut, kebijakan dapat disusun lebih sesuai dengan kondisi masyarakat.</p></div>
+ <div class="takeaway"><b>📌 Pegangan Bab 1:</b> Sosiologi = ilmu tentang masyarakat dan hubungan sosial; bersifat empiris, teoretis, kumulatif, dan non-etis; mempelajari masyarakat yang dinamis; serta dapat digunakan untuk memahami dan menangani persoalan nyata.</div>
+ <div class="chapter-nav"><button onclick="go('bab2')">Lanjut → Bab Sosialisasi</button></div>
+</section>
+
+<section class="chapter" id="bab2" data-title="Sosialisasi">
+ <div class="chapter-label">Bab 2 · Pembentukan Diri</div>
+ <h2>Sosialisasi: Bagaimana Kita Belajar Menjadi Anggota Masyarakat?</h2>
+ <p class="lead">Manusia tidak lahir langsung mengetahui cara berbicara, aturan sekolah, sopan santun, tanggung jawab, atau cara bekerja sama. Semua itu dipelajari melalui proses sosial.</p>
+ <div class="definition"><b>Sosialisasi</b> adalah proses seseorang mempelajari dan menghayati nilai, norma, pengetahuan, sikap, serta pola perilaku yang berlaku dalam masyarakat.</div>
+ <h3>1. Mengapa sosialisasi penting?</h3>
+ <p>Melalui sosialisasi, individu belajar menjalankan peran. Seorang siswa belajar menjadi siswa: mengikuti aturan sekolah, menghormati guru, bekerja sama dengan teman, mengerjakan tugas, dan bertanggung jawab.</p>
+ <div class="case"><strong>Kasus — Siswa baru</strong><p>Seorang siswa pindah sekolah. Pada minggu pertama ia belum memahami kebiasaan sekolah baru, seperti cara izin, aturan penggunaan ponsel, jadwal piket, atau budaya belajar. Setelah berinteraksi dengan guru dan teman, ia mulai memahami kebiasaan tersebut. Inilah contoh proses sosialisasi.</p></div>
+ <h3>2. Agen sosialisasi</h3>
+ <p><b>Keluarga</b> menjadi lingkungan pertama yang mengenalkan bahasa, nilai, kebiasaan, dan aturan dasar. <b>Sekolah</b> mengajarkan pengetahuan sekaligus disiplin dan tanggung jawab. <b>Teman sebaya</b> sangat berpengaruh pada remaja karena menyediakan ruang interaksi, penerimaan, dan pembentukan identitas. <b>Media</b> juga dapat memperkenalkan nilai, gaya hidup, informasi, dan pola perilaku.</p>
+ <div class="case"><strong>Contoh pengaruh teman sebaya:</strong><p>Jika sebuah kelompok teman memiliki kebiasaan belajar bersama, anggota baru dapat terdorong mengikuti kebiasaan tersebut. Sebaliknya, jika kelompok menganggap menyontek sebagai hal biasa, seseorang dapat menghadapi tekanan untuk mengikuti perilaku kelompok.</p></div>
+ <h3>3. Sosialisasi tidak sempurna</h3>
+ <p>Sosialisasi yang tidak berjalan baik dapat membuat individu kurang memahami nilai dan norma, kesulitan menyesuaikan diri, mengalami kebingungan peran, atau menunjukkan perilaku yang bertentangan dengan harapan masyarakat.</p>
+ <h3>4. Perilaku menyimpang</h3>
+ <p>Perilaku menyimpang adalah perilaku yang tidak sesuai dengan nilai atau norma yang berlaku dalam kelompok atau masyarakat tertentu. Contohnya menyontek saat ujian atau melakukan vandalisme. Penilaian menyimpang juga perlu memperhatikan konteks masyarakat dan norma yang berlaku.</p>
+ <div class="takeaway"><b>📌 Pegangan Bab 2:</b> Kita menjadi anggota masyarakat melalui sosialisasi. Keluarga, sekolah, teman sebaya, dan media berperan dalam proses tersebut. Sosialisasi membentuk cara kita memahami nilai, norma, peran, dan perilaku.</div>
+ <div class="chapter-nav"><button onclick="go('bab1')">← Bab 1</button><button onclick="go('bab3')">Lanjut → Bab Interaksi</button></div>
+</section>
+
+<section class="chapter" id="bab3" data-title="Interaksi dan Nilai Sosial">
+ <div class="chapter-label">Bab 3 · Hubungan Sosial</div>
+ <h2>Interaksi Sosial dan Nilai yang Menjadi Pedoman</h2>
+ <p class="lead">Masyarakat terbentuk karena manusia saling berhubungan. Dari hubungan tersebut muncul kerja sama, persaingan, konflik, kebiasaan, nilai, dan norma.</p>
+ <h3>1. Mengapa komunikasi penting?</h3>
+ <p>Komunikasi memungkinkan seseorang menyampaikan pesan dan menerima respons. Dalam interaksi sosial, orang bukan hanya “berada bersama”, tetapi saling memberi makna melalui tindakan dan komunikasi.</p>
+ <div class="case"><strong>Kasus — Salah memahami pesan</strong><p>Ketua kelas mengirim pesan singkat, “Besok kumpul lebih pagi.” Sebagian siswa mengira pukul 06.30, yang lain mengira 06.45. Ketidakjelasan komunikasi dapat menimbulkan salah paham. Karena itu, komunikasi yang jelas sangat penting dalam interaksi sosial.</p></div>
+ <h3>2. Nilai sosial</h3>
+ <div class="definition"><b>Nilai sosial</b> adalah anggapan atau keyakinan mengenai sesuatu yang dianggap penting, baik, berharga, dan diharapkan oleh masyarakat sehingga menjadi pedoman dalam bertindak.</div>
+ <p>Contohnya nilai kejujuran. Ketika masyarakat menganggap kejujuran penting, seseorang diharapkan berkata sesuai kenyataan dan tidak mengambil keuntungan melalui kebohongan.</p>
+ <h3>3. Kebudayaan sebagai pedoman hidup</h3>
+ <p>Kebudayaan mencakup nilai, norma, pengetahuan, kebiasaan, simbol, dan cara hidup yang dipelajari serta diwariskan. Karena itu, kebudayaan membantu manusia memahami bagaimana seharusnya bertindak dalam lingkungan sosialnya.</p>
+ <div class="case"><strong>Contoh:</strong><p>Cara menyapa guru, tradisi gotong royong, cara menghormati orang yang lebih tua, makanan khas, bahasa daerah, hingga kebiasaan dalam upacara tertentu merupakan bagian dari kehidupan budaya. Kebudayaan memberi pedoman sehingga seseorang tidak harus menciptakan aturan sosial dari nol setiap kali berinteraksi.</p></div>
+ <h3>4. Tiga faktor penting dalam sosialisasi</h3>
+ <p>Keluarga, lingkungan teman sebaya, dan media merupakan contoh faktor yang dapat memengaruhi proses sosialisasi. Ketiganya dapat memberikan pesan yang sama, tetapi juga dapat memberikan pesan yang berbeda. Individu kemudian belajar menyesuaikan dan memahami berbagai pengaruh tersebut.</p>
+ <div class="takeaway"><b>📌 Pegangan Bab 3:</b> Interaksi membutuhkan komunikasi. Nilai memberi pedoman tentang apa yang dianggap penting, sedangkan kebudayaan menyediakan pola hidup yang dipelajari dan diwariskan.</div>
+ <div class="chapter-nav"><button onclick="go('bab2')">← Bab 2</button><button onclick="go('bab4')">Lanjut → Bab Konflik & Norma</button></div>
+</section>
+
+<section class="chapter" id="bab4" data-title="Konflik Budaya dan Norma">
+ <div class="chapter-label">Bab 4 · Dinamika Masyarakat</div>
+ <h2>Konflik, Perubahan, Kebudayaan, dan Norma Sosial</h2>
+ <p class="lead">Masyarakat tidak selalu berjalan tanpa masalah. Perbedaan kepentingan dapat menimbulkan konflik, sementara norma membantu mengarahkan perilaku anggota masyarakat.</p>
+ <h3>1. Konflik tidak selalu menghasilkan dampak yang sama</h3>
+ <p>Konflik dapat menimbulkan kerugian jika berkembang menjadi kekerasan atau merusak hubungan sosial. Namun, konflik juga dapat membantu masyarakat menyadari masalah, memperjelas perbedaan kepentingan, mendorong komunikasi, dan menghasilkan perubahan jika dikelola dengan baik.</p>
+ <div class="case"><strong>Kasus — Jadwal penggunaan lapangan</strong><p>Dua kelompok siswa sama-sama ingin menggunakan lapangan pada waktu yang sama. Jika mereka saling menyerang, konflik menjadi destruktif. Tetapi jika konflik dibicarakan dan menghasilkan jadwal bergiliran, konflik justru membantu melahirkan aturan baru yang lebih jelas.</p></div>
+ <h3>2. Norma sosial bersifat mengikat</h3>
+ <div class="definition"><b>Norma sosial</b> adalah aturan atau harapan mengenai perilaku yang dianggap sesuai dalam masyarakat. Norma mengikat karena anggota masyarakat diharapkan mematuhinya dan pelanggaran dapat menimbulkan sanksi.</div>
+ <p>Sanksi dapat berupa teguran, celaan, pengucilan, atau bentuk sanksi lain sesuai jenis norma dan lingkungan sosialnya. Kekuatan ikatan norma membantu masyarakat memiliki keteraturan.</p>
+ <div class="case"><strong>Contoh di sekolah:</strong><p>Aturan larangan menyontek bukan sekadar tulisan. Ada harapan bahwa siswa mengerjakan ujian dengan jujur. Ketika aturan dilanggar, sekolah dapat memberikan konsekuensi sesuai tata tertib. Norma tersebut membantu menjaga keadilan dalam penilaian.</p></div>
+ <h3>3. Masyarakat bersifat dinamis</h3>
+ <p>Perubahan teknologi, ekonomi, pendidikan, budaya, dan pola hubungan membuat masyarakat terus berkembang. Cara siswa berkomunikasi hari ini berbeda dengan generasi sebelumnya karena hadirnya internet dan media sosial. Perubahan tersebut menjadi salah satu alasan sosiologi disebut mempelajari masyarakat yang dinamis.</p>
+ <div class="takeaway"><b>📌 Pegangan Bab 4:</b> Konflik dapat berdampak negatif maupun positif bergantung pada proses dan pengelolaannya. Norma mengikat karena menjadi pedoman perilaku dan memiliki konsekuensi ketika dilanggar. Masyarakat terus berubah sehingga kehidupan sosial bersifat dinamis.</div>
+ <div class="chapter-nav"><button onclick="go('bab3')">← Bab 3</button><button onclick="go('latihan')">Lanjut → Cek 20 Soal</button></div>
+</section>
+
+<section class="chapter" id="latihan">
+ <div class="chapter-label">Bagian Akhir · Refleksi</div>
+ <h2>20 Soal Ulangan: Cocokkan Jawabanmu</h2>
+ <p class="lead">Sekarang kembali ke lembar jawaban ulanganmu. Coba jawab dalam pikiran sebelum menekan tombol pembahasan. Yang dicari bukan harus sama persis dengan kalimat di bawah, tetapi apakah <b>ide pokok dan konsepnya benar</b>.</p>
+ <div id="questions"></div>
+</section>
+<footer>Gunakan sebagai bahan pembelajaran dan refleksi. Jawaban dapat disesuaikan dengan buku ajar dan pembahasan guru di kelas.</footer>
+</main>
+</div>
+
+<script>
+const data = [
+{q:"Jelaskan pengertian sosiologi.",a:"Sosiologi adalah ilmu yang mempelajari masyarakat, hubungan sosial, interaksi sosial, kelompok sosial, serta berbagai proses dan perubahan yang terjadi dalam kehidupan masyarakat secara sistematis dan berdasarkan metode ilmiah.",k:["ilmu masyarakat","hubungan sosial","interaksi sosial","metode ilmiah"]},
+{q:"Sebutkan dan jelaskan empat ciri utama sosiologi sebagai ilmu pengetahuan.",a:"Empat ciri utama sosiologi adalah: (1) Empiris, berdasarkan pengamatan terhadap kenyataan sosial. (2) Teoretis, berusaha menyusun hubungan sebab-akibat atau konsep yang logis dari hasil pengamatan. (3) Kumulatif, teori atau pengetahuan baru dapat memperbaiki, melengkapi, atau mengembangkan teori sebelumnya. (4) Non-etis, tidak menilai suatu gejala sosial sebagai baik atau buruk secara moral, tetapi menjelaskan fakta dan proses yang melatarbelakanginya.",k:["empiris","teoretis","kumulatif","non-etis"]},
+{q:"Mengapa Auguste Comte dijuluki sebagai “Bapak Sosiologi”?",a:"Auguste Comte dikenal sebagai “Bapak Sosiologi” karena memperkenalkan istilah sosiologi dan mendorong kajian masyarakat dilakukan secara ilmiah. Ia mengembangkan pemikiran positivisme yang menekankan penggunaan pengamatan dan metode ilmiah dalam memahami masyarakat.",k:["Auguste Comte","positivisme","istilah sosiologi","metode ilmiah"]},
+{q:"Jelaskan objek kajian sosiologi.",a:"Objek kajian sosiologi adalah kehidupan masyarakat, terutama hubungan dan interaksi sosial, kelompok serta struktur sosial, lembaga sosial, proses sosial, nilai dan norma, perubahan sosial, dan berbagai gejala sosial yang muncul dalam masyarakat.",k:["masyarakat","interaksi sosial","kelompok sosial","gejala sosial"]},
+{q:"Mengapa penelitian sosiologi bersifat non-etis?",a:"Karena sosiologi berusaha menjelaskan bagaimana dan mengapa suatu gejala sosial terjadi, bukan menentukan apakah gejala tersebut baik atau buruk secara moral. Peneliti harus berusaha membedakan analisis ilmiah dari penilaian pribadi.",k:["non-etis","fakta sosial","objektif","tidak menghakimi"]},
+{q:"Sebutkan dan jelaskan kegunaan sosiologi dalam kehidupan sehari-hari.",a:"Sosiologi berguna untuk memahami masyarakat dan perilaku sosial, mengenali masalah sosial, membantu mencari solusi, menjadi bahan perencanaan pembangunan, membantu mengevaluasi kebijakan, serta meningkatkan kemampuan seseorang beradaptasi dan berinteraksi dengan lingkungan sosialnya.",k:["masalah sosial","pembangunan","kebijakan","interaksi"]},
+{q:"Jelaskan mengapa sosiologi dapat disebut sebagai “ilmu tentang masyarakat yang dinamis.”",a:"Masyarakat selalu mengalami perubahan dalam nilai, norma, teknologi, pola hubungan, ekonomi, budaya, dan lembaga sosial. Karena sosiologi mempelajari proses, hubungan, serta perubahan tersebut, sosiologi tidak hanya mempelajari masyarakat dalam keadaan tetap, tetapi juga masyarakat yang terus berkembang.",k:["perubahan sosial","dinamis","nilai","teknologi"]},
+{q:"Bagaimana sosiologi dapat membantu pemerintah dalam membuat kebijakan?",a:"Sosiologi dapat menyediakan data dan analisis tentang kondisi masyarakat, kebutuhan kelompok sosial, masalah sosial, serta kemungkinan dampak suatu kebijakan. Informasi tersebut dapat digunakan pemerintah untuk merancang kebijakan yang lebih sesuai dengan kondisi masyarakat dan mengevaluasi hasilnya.",k:["data sosial","kebijakan","masalah sosial","evaluasi"]},
+{q:"Jelaskan mengapa sosiologi dapat dikatakan sebagai ilmu murni (pure science) dan ilmu terapan (applied science).",a:"Sebagai ilmu murni, sosiologi bertujuan mengembangkan pengetahuan dan teori tentang masyarakat. Sebagai ilmu terapan, pengetahuan sosiologi digunakan untuk memahami dan membantu memecahkan masalah nyata, misalnya masalah kemiskinan, konflik, pendidikan, urbanisasi, atau ketimpangan sosial.",k:["pure science","applied science","teori","pemecahan masalah"]},
+{q:"Jelaskan pengertian sosialisasi dan mengapa proses ini sangat penting bagi individu.",a:"Sosialisasi adalah proses seseorang mempelajari dan menghayati nilai, norma, pengetahuan, sikap, serta pola perilaku yang berlaku dalam masyarakat. Proses ini penting agar individu mampu memahami aturan sosial, berinteraksi dengan orang lain, menjalankan peran sosial, dan menjadi bagian dari masyarakat.",k:["nilai","norma","peran sosial","masyarakat"]},
+{q:"Apa yang dimaksud dengan perilaku menyimpang (social deviation)? Berikan dua contohnya.",a:"Perilaku menyimpang adalah perilaku yang tidak sesuai atau bertentangan dengan nilai dan norma yang berlaku dalam kelompok atau masyarakat tertentu. Contohnya dapat berupa menyontek saat ujian dan melakukan vandalisme di fasilitas umum.",k:["penyimpangan","nilai","norma","menyontek","vandalisme"]},
+{q:"Mengapa kelompok teman sebaya sangat memengaruhi proses sosialisasi seorang remaja?",a:"Teman sebaya menjadi lingkungan tempat remaja banyak berinteraksi, berbagi pengalaman, membentuk identitas, dan memperoleh penerimaan sosial. Nilai, kebiasaan, bahasa, gaya berinteraksi, dan tekanan kelompok dapat memengaruhi cara remaja berpikir dan bertindak.",k:["teman sebaya","identitas","interaksi","pengaruh kelompok"]},
+{q:"Apa yang dimaksud dengan “nilai sosial”? Berikan satu contoh.",a:"Nilai sosial adalah anggapan, keyakinan, atau sesuatu yang dianggap penting, baik, berharga, dan diharapkan oleh masyarakat sehingga menjadi pedoman dalam bertindak. Contohnya adalah nilai kejujuran: masyarakat menganggap berkata jujur sebagai perilaku yang baik dan penting.",k:["nilai sosial","pedoman","kejujuran","masyarakat"]},
+{q:"Jelaskan tiga faktor yang memengaruhi sosialisasi individu.",a:"Tiga faktor yang dapat memengaruhi sosialisasi antara lain: (1) keluarga, yang mengenalkan nilai dan norma sejak awal; (2) lingkungan pergaulan atau teman sebaya, yang memengaruhi kebiasaan dan perilaku; dan (3) media massa/media digital, yang menyediakan berbagai informasi, nilai, gaya hidup, dan contoh perilaku.",k:["keluarga","teman sebaya","media","lingkungan"]},
+{q:"Jelaskan dampak negatif dari sosialisasi yang tidak sempurna.",a:"Sosialisasi yang tidak sempurna dapat membuat seseorang kurang memahami nilai dan norma, mengalami kesulitan menyesuaikan diri, mengalami kebingungan peran, atau melakukan perilaku yang bertentangan dengan harapan masyarakat. Dampaknya bergantung pada lingkungan dan pengalaman individu.",k:["nilai","norma","penyesuaian diri","perilaku menyimpang"]},
+{q:"Mengapa keluarga dianggap sebagai agen sosialisasi yang paling utama?",a:"Keluarga biasanya menjadi lingkungan sosial pertama yang dikenal individu. Sejak kecil, keluarga mengenalkan bahasa, kebiasaan, nilai, norma, sikap, dan aturan dasar kehidupan. Interaksi yang berlangsung berulang membuat pengaruh keluarga sangat penting dalam pembentukan kepribadian dan perilaku sosial.",k:["keluarga","agen sosialisasi","nilai","norma"]},
+{q:"Mengapa komunikasi menjadi syarat utama terjadinya interaksi sosial?",a:"Komunikasi memungkinkan seseorang menyampaikan dan menerima pesan, pikiran, perasaan, atau tindakan dari orang lain. Tanpa komunikasi yang memungkinkan adanya respons atau makna bersama, hubungan sosial akan sulit berkembang menjadi interaksi yang bermakna.",k:["komunikasi","pesan","respons","interaksi sosial"]},
+{q:"Mengapa konflik dapat memiliki dampak positif bagi masyarakat?",a:"Konflik dapat mendorong masyarakat menyadari adanya masalah, memperjelas perbedaan kepentingan, mendorong komunikasi dan penyelesaian masalah, serta menghasilkan perubahan sosial. Namun, dampak konflik tidak selalu positif; hasilnya bergantung pada cara konflik dikelola.",k:["konflik","perubahan sosial","penyelesaian masalah","komunikasi"]},
+{q:"Mengapa kebudayaan dianggap sebagai pedoman hidup manusia?",a:"Kebudayaan berisi nilai, norma, pengetahuan, kebiasaan, simbol, dan cara hidup yang dipelajari serta diwariskan dalam masyarakat. Unsur-unsur tersebut membantu manusia menentukan cara berpikir, bertindak, berkomunikasi, dan menyesuaikan diri dengan lingkungan sosialnya.",k:["kebudayaan","nilai","norma","pedoman hidup"]},
+{q:"Jelaskan mengapa norma sosial bersifat mengikat.",a:"Norma sosial bersifat mengikat karena norma berisi aturan atau harapan mengenai perilaku yang dianggap sesuai dalam masyarakat. Anggota masyarakat diharapkan mematuhinya dan dapat memperoleh sanksi sosial apabila melanggar, baik berupa teguran, celaan, pengucilan, maupun sanksi lain sesuai jenis normanya.",k:["norma","aturan","sanksi","kepatuhan"]}
+];
+const qbox=document.getElementById('questions');
+const opened=new Set();
+
+function renderQuestions(filter=''){
+ qbox.innerHTML='';
+ const f=filter.toLowerCase().trim();
+ data.forEach((x,i)=>{
+   const hay=(x.q+' '+x.a+' '+x.k.join(' ')).toLowerCase();
+   if(f && !hay.includes(f)) return;
+   const el=document.createElement('div');
+   el.className='qbox'; el.id='soal'+(i+1);
+   el.innerHTML=`<div class="qtitle">${i+1}. ${x.q}</div>
+   <button class="qbtn" onclick="toggleQ(${i})">👁️ Lihat pembahasan</button>
+   <div class="answer" id="a${i}"><h4>Pembahasan / Jawaban inti</h4><p>${x.a}</p><div>${x.k.map(k=>`<span class="keyword">${k}</span>`).join('')}</div></div>`;
+   qbox.appendChild(el);
+ });
+ update();
+}
+function toggleQ(i){
+ const a=document.getElementById('a'+i);
+ const b=a.previousElementSibling;
+ const open=a.classList.toggle('show');
+ b.textContent=open?'🙈 Tutup pembahasan':'👁️ Lihat pembahasan';
+ if(open) opened.add(i); else opened.delete(i);
+ update();
+}
+function update(){
+ document.getElementById('counter').textContent=opened.size+' dari 20 soal';
+ document.getElementById('prog').style.width=(opened.size/20*100)+'%';
+}
+function go(id,btn){
+ const el=document.getElementById(id);
+ if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+ if(btn){document.querySelectorAll('.sidebtn').forEach(x=>x.classList.remove('active'));btn.classList.add('active')}
+}
+document.getElementById('search').addEventListener('input',e=>{
+ const term=e.target.value;
+ if(term.trim()) document.getElementById('latihan').scrollIntoView({behavior:'smooth',block:'start'});
+ renderQuestions(term);
+});
+renderQuestions();
+</script>
+</body>
+</html>
